@@ -379,6 +379,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CustomUnits\ExampleUnit.cs" />
+    <Compile Include="Mods\SteamUnhooker.cs" />
     <Compile Include="RCMManager.cs" />
     <Compile Include="Mods\CustomUnits.cs" />
     <Compile Include="Mods\DevMode.cs" />

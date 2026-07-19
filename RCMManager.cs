@@ -24,11 +24,10 @@ namespace TestMod{
 
             Harmony harmony = new Harmony("RCM.plugins.modmanager");
             harmony.PatchAll();
-
             Chainloader.ManagerObject.hideFlags = HideFlags.HideAndDontSave;
             new DevMode();
             new RCSEDumper();
-
+            new SteamUnhooker();
 
             SceneManager.sceneLoaded += OnSceneLoaded;
         }
