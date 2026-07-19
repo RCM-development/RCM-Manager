@@ -21,6 +21,10 @@ namespace TestMod{
         public RCMManager(){ main = this; }
         private void Awake() {
             Logger.LogInfo("RCM entry point....");
+
+            Harmony harmony = new Harmony("RCM.plugins.modmanager");
+            harmony.PatchAll();
+
             Chainloader.ManagerObject.hideFlags = HideFlags.HideAndDontSave;
             new DevMode();
             new RCSEDumper();

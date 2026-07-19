@@ -10,8 +10,11 @@ using UnityEngine;
 namespace TestMod.Mods{
 
     internal class RCSEDumper{
-        const string export_folder = "C:\\Users\\ct770\\DIRECTORY\\PROJECTS\\Rogue Command\\DUMP\\RCSEDumper\\";
+        const string export_folder = "RCSEDumper\\";
         public RCSEDumper() {
+            // create folder for dumping
+            if (!Directory.Exists(export_folder)) Directory.CreateDirectory(export_folder);
+
             RCMManager.ConnectMod("RCSE Dumper v1").ContinueWith(t => {
                 RCMModUI mod = t.Result;
 
@@ -184,17 +187,30 @@ namespace TestMod.Mods{
                     writer.Write(item.upgradeId + "\t");
 
             // export all AI types
-            using (StreamWriter writer = new StreamWriter(export_folder + "enemy_decks.txt"))
-                foreach (var item in GameBalancingStore._gameBalancingScriptableObject.levelProgressionParameters.defaultAis)
-                    writer.Write(item.name + "\t");
+            using (StreamWriter writer = new StreamWriter(export_folder + "enemy_decks.txt")){
+                foreach (var item in GameBalancingStore._gameBalancingScriptableObject.levelProgressionParameters.defaultAis) writer.Write(item.name + "\t");
+                if (GameBalancingStore._gameBalancingScriptableObject.levelProgressionParametersHeat?.defaultAis != null)
+                    foreach (var item in GameBalancingStore._gameBalancingScriptableObject.levelProgressionParametersHeat?.defaultAis) writer.Write(item.name + "\t");
+                if (GameBalancingStore._gameBalancingScriptableObject.levelProgressionParametersFirstRun?.defaultAis != null)
+                    foreach (var item in GameBalancingStore._gameBalancingScriptableObject.levelProgressionParametersFirstRun?.defaultAis) writer.Write(item.name + "\t");
+            }
             // export all landscape generators
-            using (StreamWriter writer = new StreamWriter(export_folder + "landscapes.txt"))
-                foreach (var item in GameBalancingStore._gameBalancingScriptableObject.levelProgressionParameters.defaultLandscapeGenerators)
-                    writer.Write(item.name + "\t");
+            using (StreamWriter writer = new StreamWriter(export_folder + "landscapes.txt")){
+                foreach (var item in GameBalancingStore._gameBalancingScriptableObject.levelProgressionParameters.defaultLandscapeGenerators) writer.Write(item.name + "\t");
+                if (GameBalancingStore._gameBalancingScriptableObject.levelProgressionParametersHeat?.defaultLandscapeGenerators != null)
+                    foreach (var item in GameBalancingStore._gameBalancingScriptableObject.levelProgressionParametersHeat?.defaultLandscapeGenerators) writer.Write(item.name + "\t");
+                if (GameBalancingStore._gameBalancingScriptableObject.levelProgressionParametersFirstRun?.defaultLandscapeGenerators != null)
+                    foreach (var item in GameBalancingStore._gameBalancingScriptableObject.levelProgressionParametersFirstRun?.defaultLandscapeGenerators) writer.Write(item.name + "\t");
+            }
             // export all world types
-            using (StreamWriter writer = new StreamWriter(export_folder + "worlds.txt"))
-                foreach (var item in GameBalancingStore._gameBalancingScriptableObject.levelProgressionParameters.defaultWorlds)
-                    writer.Write(item.name + "\t");
+            using (StreamWriter writer = new StreamWriter(export_folder + "worlds.txt")){
+                foreach (var item in GameBalancingStore._gameBalancingScriptableObject.levelProgressionParameters.defaultWorlds) writer.Write(item.nameLocaId + "\t");
+                if (GameBalancingStore._gameBalancingScriptableObject.levelProgressionParametersHeat?.defaultWorlds != null)
+                    foreach (var item in GameBalancingStore._gameBalancingScriptableObject.levelProgressionParametersHeat?.defaultWorlds) writer.Write(item.nameLocaId + "\t");
+                if (GameBalancingStore._gameBalancingScriptableObject.levelProgressionParametersFirstRun?.defaultWorlds != null)
+                    foreach (var item in GameBalancingStore._gameBalancingScriptableObject.levelProgressionParametersFirstRun?.defaultWorlds) writer.Write(item.nameLocaId + "\t");
+            }
+
 
             RCMManager.Log("RCSE Dumper: successfully dumped ID's");
         }
