@@ -15,6 +15,8 @@ namespace TestMod.Mods {
 
                 // begin mod UI construction here...
                 mod.CreateLabelField("[F7] to access dev menu");
+                mod.CreateLabelField("[K] freecam [C] hud");
+                mod.CreateLabelField("[X] invincibility");
 
 
             }, TaskScheduler.FromCurrentSynchronizationContext());
