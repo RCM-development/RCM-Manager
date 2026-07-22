@@ -126,7 +126,8 @@ namespace TestMod.Mods
 
                     if (v.factoryForEntityId.hasValue)
                     {
-                        EntityBalancingStore.FactoryEntityIdOf[v.entityId] = v.factoryForEntityId.value;
+                        //EntityBalancingStore.FactoryEntityIdOf[v.entityId] = v.factoryForEntityId.value;
+                        EntityBalancingStore.FactoryEntityIdOf[v.factoryForEntityId.value] = v.entityId;
                     }
                 }
             
