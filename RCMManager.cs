@@ -5,10 +5,6 @@ using System.Threading.Tasks;
 using BepInEx;
 using BepInEx.Bootstrap;
 using HarmonyLib;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
-using TestMod.CustomUnits;
-using TestMod.Mods;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -27,8 +23,6 @@ namespace TestMod{
             Harmony harmony = new Harmony(IDENTIFIER);
             harmony.PatchAll();
             Chainloader.ManagerObject.hideFlags = HideFlags.HideAndDontSave;
-            new RCSEDumper();
-            new SteamUnhooker();
 
             SceneManager.sceneLoaded += OnSceneLoaded;
         }

@@ -1,15 +1,7 @@
 ﻿using System.Collections.Generic;
-using System.IO;
-using System.Threading.Tasks;
-using BepInEx;
-using BepInEx.Bootstrap;
-using HarmonyLib;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
-using TestMod.CustomUnits;
+
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using static TestMod.RCMAssets;
 
