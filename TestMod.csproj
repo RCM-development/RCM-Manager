@@ -382,7 +382,6 @@
     <Compile Include="Mods\SteamUnhooker.cs" />
     <Compile Include="RCMManager.cs" />
     <Compile Include="Mods\CustomUnits.cs" />
-    <Compile Include="Mods\DevMode.cs" />
     <Compile Include="Mods\RCSEDumper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RCMAssets.cs" />

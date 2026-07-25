@@ -15,17 +15,18 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 namespace TestMod{
 
-    [BepInPlugin("RCM.plugins.modmanager", "Mod Manager Plugin", "1.0.0.0")]
+    [BepInPlugin(IDENTIFIER, "Mod Manager Plugin", "1.0.0.0")]
     public class RCMManager : BaseUnityPlugin{
+        public const string IDENTIFIER = "RCM.plugins.modmanager";
         static RCMManager main;
         public RCMManager(){ main = this; }
         private void Awake() {
             Logger.LogInfo("RCM entry point....");
 
-            Harmony harmony = new Harmony("RCM.plugins.modmanager");
+
+            Harmony harmony = new Harmony(IDENTIFIER);
             harmony.PatchAll();
             Chainloader.ManagerObject.hideFlags = HideFlags.HideAndDontSave;
-            new DevMode();
             new RCSEDumper();
             new SteamUnhooker();
 
