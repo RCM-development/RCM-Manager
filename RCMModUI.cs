@@ -58,7 +58,11 @@ namespace TestMod{
         GameObject fields_panel;
         List<GameObject> current_fields = new List<GameObject>();
 
-
+        public void ClearFields(){
+            foreach (GameObject field in current_fields)
+                GameObject.Destroy(field);
+            current_fields.Clear();
+        }
         public void CreateButtonField(string text, UnityEngine.Events.UnityAction callback){
             GameObject field = GameObject.Instantiate(button_prefab);
             field.transform.SetParent(fields_panel.transform);
