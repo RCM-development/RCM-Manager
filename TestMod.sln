@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RCM_CustomUnits", "..\DLL_M
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RCM_Tools", "..\DLL_MODS\RCM_Tools\RCM_Tools.csproj", "{D18F152E-66BE-478E-8D05-72B4570D008E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RCM_EngiUpgrades", "..\DLL_MODS\RCM_EngiUpgrades\RCM_EngiUpgrades.csproj", "{339558B5-DEBC-456A-862E-0FDEEE8D8D04}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{D18F152E-66BE-478E-8D05-72B4570D008E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D18F152E-66BE-478E-8D05-72B4570D008E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D18F152E-66BE-478E-8D05-72B4570D008E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{339558B5-DEBC-456A-862E-0FDEEE8D8D04}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{339558B5-DEBC-456A-862E-0FDEEE8D8D04}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{339558B5-DEBC-456A-862E-0FDEEE8D8D04}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{339558B5-DEBC-456A-862E-0FDEEE8D8D04}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

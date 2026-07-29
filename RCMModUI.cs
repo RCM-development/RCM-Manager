@@ -74,7 +74,7 @@ namespace TestMod{
             Button button = field.transform.Find("Button").gameObject.GetComponent<Button>();
             button.onClick.AddListener(callback);
         }
-        public void CreateCheckboxField(string text, UnityEngine.Events.UnityAction<bool> callback){
+        public void CreateCheckboxField(string text, UnityEngine.Events.UnityAction<bool> callback, bool initialValue = false){
             GameObject field = GameObject.Instantiate(checkbox_prefab);
             field.transform.SetParent(fields_panel.transform, false);
             current_fields.Add(field);
@@ -83,6 +83,7 @@ namespace TestMod{
             label_text.text = text;
 
             Toggle toggle = field.transform.Find("Toggle").GetComponent<Toggle>();
+            toggle.isOn = initialValue;
             toggle.onValueChanged.AddListener(callback);
         }
         public void CreateTextInputField(string label, UnityEngine.Events.UnityAction<string> callback){
