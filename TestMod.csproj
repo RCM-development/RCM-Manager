@@ -388,6 +388,8 @@
     <None Include="packages.config" />
     <None Include="res\rcmoverlay" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="res\Assembly-CSharp-publicized.dll" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
