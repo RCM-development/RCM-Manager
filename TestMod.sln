@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 18
 VisualStudioVersion = 18.9.12009.208
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestMod", "TestMod.csproj", "{A6CDE29A-0229-4C93-A425-090BFDD1043D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RCM_GUI", "RCM_GUI.csproj", "{A6CDE29A-0229-4C93-A425-090BFDD1043D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RCM_RCSEDumper", "..\RCM_RCSEDumper\RCM_RCSEDumper.csproj", "{C7C9876A-DB90-4348-A5CD-147A18B1EA67}"
 EndProject

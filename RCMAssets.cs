@@ -2,9 +2,9 @@
 
 using UnityEngine;
 
-namespace TestMod{
+namespace RCM_GUI{
     public static class RCMAssets{
-        const string bundlePath = "BepInEx\\plugins\\rcmoverlay";
+        const string bundlePath = "BepInEx\\plugins\\RCM_GUI_assets";
         const string overlay_prefab_name = "Assets/RCM_overlay.prefab";
         const string mod_prefab_name = "Assets/mod_instance.prefab";
         const string button_prefab_name = "Assets/field_button.prefab";

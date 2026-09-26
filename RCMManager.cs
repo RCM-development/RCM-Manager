@@ -9,9 +9,9 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-namespace TestMod{
+namespace RCM_GUI{
 
-    [BepInPlugin(IDENTIFIER, "Mod Manager Plugin", "1.0.0.0")]
+    [BepInPlugin(IDENTIFIER, "Mod Manager Plugin", "1.0.0.1")]
     public class RCMManager : BaseUnityPlugin{
         public const string IDENTIFIER = "RCM.plugins.modmanager";
         static RCMManager main;
@@ -41,7 +41,6 @@ namespace TestMod{
             DontDestroyOnLoad(overlay_obj);
 
             overlay_mod_panel = overlay_obj.transform.Find("mods_panel").gameObject.transform;
-            //overlay_mod_panel = overlay_obj.transform.Find("Scroll View/Viewport/Content/mods_panel").gameObject.transform;
             overlay_text = overlay_obj.transform.Find("info_strip/strip_context").gameObject.GetComponent<TextMeshProUGUI>();
             UpdateTitle();
 

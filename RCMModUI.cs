@@ -3,9 +3,9 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using static TestMod.RCMAssets;
+using static RCM_GUI.RCMAssets;
 
-namespace TestMod{
+namespace RCM_GUI{
     public class RCMModUI{
         public RCMModUI(string title_str, Color? widget_color, Transform overlay_mod_panel) {
             obj = GameObject.Instantiate(mod_prefab);

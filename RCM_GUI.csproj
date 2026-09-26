@@ -1,0 +1,42 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net48</TargetFramework>
+    <AssemblyName>RCM_GUI</AssemblyName>
+    <RootNamespace>RCM_GUI</RootNamespace>
+    <LangVersion>latest</LangVersion>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <DebugType>portable</DebugType>
+  </PropertyGroup>
+
+  <!-- Path to the installed game. Override with -p:GameDir=... if the game lives elsewhere. -->
+  <PropertyGroup>
+    <GameDir Condition="'$(GameDir)' == ''">C:\Program Files (x86)\Steam\steamapps\common\Rogue Command</GameDir>
+    <GameDir Condition="!Exists('$(GameDir)')">D:\SteamLibrary\steamapps\common\Rogue Command</GameDir>
+    <Managed>$(GameDir)\Rogue Command_Data\Managed</Managed>
+    <BepCore>$(GameDir)\BepInEx\core</BepCore>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.3" PrivateAssets="all" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- BepInEx + Harmony -->
+    <Reference Include="$(BepCore)\BepInEx.dll"><Private>false</Private></Reference>
+    <Reference Include="$(BepCore)\0Harmony.dll"><Private>false</Private></Reference>
+
+    <!-- Publicized game code (shipped in this repo) -->
+    <Reference Include="res\Assembly-CSharp-publicized.dll"><Private>false</Private></Reference>
+
+    <!-- All Unity engine + package assemblies shipped with the game -->
+    <Reference Include="$(Managed)\Unity*.dll"><Private>false</Private></Reference>
+    <Compile Remove="res\unity_assets_project\**" />
+    <EmbeddedResource Remove="res\unity_assets_project\**" />
+    <None Remove="res\unity_assets_project\**" />
+    <Reference Include="$(Managed)\Newtonsoft.Json.dll"><Private>false</Private></Reference>
+  </ItemGroup>
+
+</Project>
