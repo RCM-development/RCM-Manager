@@ -4,6 +4,7 @@ using System.IO;
 using System.Threading.Tasks;
 using BepInEx;
 using BepInEx.Bootstrap;
+using BepInEx.Configuration;
 using HarmonyLib;
 using TMPro;
 using UnityEngine;
@@ -18,7 +19,11 @@ namespace RCM_GUI{
         public RCMManager(){ main = this; }
         private void Awake() {
             Logger.LogInfo("RCM entry point....");
-
+            // F5 is the game's own "select skill buildings" key. F6 is bound to nothing in any of
+            // the game's input maps; any key or combination can be set here.
+            toggle_key = Config.Bind("Hotkeys", "TogglePanel", new KeyboardShortcut(KeyCode.F6),
+                "Opens and closes the RCM panel. A single key (F6) or a combination (e.g. \"F6 + LeftControl\").");
+            toggle_key.SettingChanged += (s, e) => UpdateTitle();
 
             Harmony harmony = new Harmony(IDENTIFIER);
             harmony.PatchAll();
@@ -56,7 +61,7 @@ namespace RCM_GUI{
             if      (string.IsNullOrWhiteSpace(log_field)) log_field = "no logs.";
             else if (log_repeat_count > 0)                 log_field += $" ({log_repeat_count})";
 
-            overlay_text.text = $"RCM Mod Manager v1 | [F5] to open/close | {mods_connected} mods active | {log_field}";
+            overlay_text.text = $"RCM Mod Manager v1 | [{toggle_key.Value}] to open/close | {mods_connected} mods active | {log_field}";
         }
 
         public static async Task<RCMModUI> ConnectMod(string modname, Color? haeder_color = null) {
@@ -69,8 +74,9 @@ namespace RCM_GUI{
         }
 
         bool UI_visible = true;
+        ConfigEntry<KeyboardShortcut> toggle_key;
         private void Update(){
-            if (Input.GetKeyDown(KeyCode.F5)) {
+            if (overlay_obj != null && toggle_key.Value.IsDown()) {
                 UI_visible = !UI_visible;
                 overlay_obj.SetActive(UI_visible);
             }
